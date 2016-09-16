@@ -76,6 +76,7 @@ public class SalesBean extends PurchasesDao {
     }
 
     public void memoFindview() {
+        slsList11.clear();
         Connection con = DB.getConnection();
         try {
             PreparedStatement stm = con.prepareCall("select * from sales where MemoNo=?");
@@ -107,6 +108,7 @@ public class SalesBean extends PurchasesDao {
     }
 
     public void reportFirstModel(HttpServletRequest request) {
+        sre1.clear();
         HttpServletRequest req = (HttpServletRequest) request;
         HttpSession ses = req.getSession(false);
         int emp_id = (Integer.parseInt(ses.getAttribute("status").toString()));

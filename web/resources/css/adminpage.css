@@ -1,0 +1,15 @@
+.brdr{
+    border: 1px solid #c9c9c9 !important;
+}
+.summarySales{    
+    background-color: #1D6891;
+    margin-bottom: 3px;
+    height: 100px;
+    text-align: center;
+    color: #bce8f1;
+}
+
+hr{
+    padding: 0;
+    margin: 0;
+}

@@ -20,8 +20,7 @@
                 <h:form>
                     <p:menu class="sidemenu">
                         <p:menuitem class="menubtn" value="Sales" action="salesuser" ajax="false"  icon="fa fa-arrow-right "/>
-                        <p:menuitem class="menubtn" action="userReport" actionListener="#{salesBean.reportFirstModel(request)}" value="Reports" icon="fa fa-arrow-right" ajax="false"/>
-
+                        <p:menuitem class="menubtn" action="userReport" actionListener="#{salesBean.reportFirstModel(request)}" value="Reports" icon="fa fa-arrow-right" ajax="false" rendered="true"/>
                     </p:menu>
                 </h:form>
             </div>

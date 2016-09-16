@@ -62,6 +62,22 @@
             <redirect/>
         </navigation-case>
     </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/user/*</from-view-id>
+        <navigation-case>
+            <from-outcome>logout</from-outcome>   
+            <to-view-id>/login.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/template/*</from-view-id>
+        <navigation-case>
+            <from-outcome>logout</from-outcome>   
+            <to-view-id>/login.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
     
     <navigation-rule>
         <from-view-id>/dataentry/*</from-view-id>

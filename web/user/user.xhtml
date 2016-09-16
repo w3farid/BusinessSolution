@@ -16,7 +16,11 @@
             </ui:define>
 
             <ui:define name="content">
-
+                <div style="float: right;">
+                     <h:form id="f1">
+                        <p:commandButton process="@" value="Logout" action="#{loginBean.logout}" ajax="false"  class="btntxt"/>
+                    </h:form>
+                </div>
                 <h:form>
                     <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
                     <center>
@@ -27,6 +31,8 @@
                             <f:selectItems value="#{salesBean.productList}" var="v2" itemValue="#{v2.pro_Name}" itemLabel="#{v2.pro_Name}" />
                         </p:selectCheckboxMenu>
                         <p:commandButton id="showbtn" value="Show" actionListener="#{salesBean.createPurForm}" ajax="false" update="display" class="btntxt"/>
+
+
 
 
 
@@ -59,7 +65,7 @@
                             </table>                   
                             <p:commandButton value="Sell" action="#{salesBean.doSave(request)}" ajax="false" update="tst"  class="btntxt1"/>
                         </p:outputPanel>
-                        
+
                     </center>
                 </h:form> 
             </ui:define>

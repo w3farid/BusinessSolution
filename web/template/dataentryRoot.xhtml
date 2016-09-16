@@ -12,6 +12,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
         <h:outputStylesheet name="./css/bs-menubar.css"/> 
         <h:outputStylesheet name="./css/bootstrap.min.css"/>
+        <h:outputStylesheet name="./css/adminpage.css"/>
         <h:outputStylesheet name="./css/style.css"/>
         <h:outputStylesheet library="awesome" name="./css/font-awesome.css"/>
         <title><ui:insert name="title">Insert Title</ui:insert></title>
@@ -25,13 +26,20 @@
                         <p:growl id="messages"/>
 
                         <p:menubar style="padding-left: 25%;">
-                            <p:menuitem class="dashboard" value="Dashboard" url="http://localhost:8084/BusinessSolution/faces/dataentry/dataentry.xhtml" icon=" fa fa-home" />
-                            <p:submenu label="Reports"  icon="fa fa-th-list">
-                                <p:menuitem value="Employee" url="../employee.jsp" icon="ui-icon-arrowreturnthick-1-w" />
-                                <p:menuitem value="Customer" url="../customer_R.jsp" icon="ui-icon-arrowreturnthick-1-e" />
-                                <p:menuitem value="Product" url="../product_R.jsp" icon="ui-icon-arrowreturnthick-1-e" />
-                                <p:menuitem value="Purchases" url="../purchases_R.jsp" icon="ui-icon-arrowreturnthick-1-e" />
-                                <p:menuitem value="Salary" url="../salar_R.jsp" icon="ui-icon-arrowreturnthick-1-e" />
+                            <p:menuitem class="dashboard" value="Dashboard" url="http://localhost:8084/BusinessSolution/faces/template/dataentryRoot.xhtml" icon=" fa fa-home" />
+                            <p:submenu label="File" icon="fa fa-th-list">
+                                <p:submenu label="New" icon="ui-icon-contact">
+                                    <p:menuitem value="Project" url="#" />
+                                    <p:menuitem value="Other" url="#" />
+                                </p:submenu>
+                                <p:menuitem value="Open" url="#" />
+                                <p:separator />
+                                <p:menuitem value="Quit" url="#" />
+                            </p:submenu>
+
+                            <p:submenu label="Edit"  icon="fa fa-th-list">
+                                <p:menuitem value="Undo" url="#" icon="ui-icon-arrowreturnthick-1-w" />
+                                <p:menuitem value="Redo" url="#" icon="ui-icon-arrowreturnthick-1-e" />
                             </p:submenu>
 
                             <p:submenu label="Help"  icon="fa fa-th-list">
@@ -74,23 +82,40 @@
                     </h:form>
                 </ui:insert>
             </div>
-            <div class="container-fluid">
-                <div class="col-xs-6 col-md-2">                
-                    <ui:insert name="left">
-                        <ul id="leftmenu">
-                            <li><a class="active" href="#home">Title Name</a></li>
-                            <li><a href="#news">Insert</a></li>
-                            <li><a href="#contact">Update</a></li>
-                            <li><a href="#about">Delete</a></li>
-                            <li><a href="#about">Show</a></li>
-                        </ul>
-                    </ui:insert>
-                </div>
+            <div class="container brdr">
+                <div class="row">
+                    <div class="col-md-10">
+                        <p:chart type="bar" model="#{chartView.barModel}" style="height:450px"/>  
+                    </div>
+                    <div class="col-md-2">
+                        <div class="row">
+                            <div class="col-md-12 summarySales">
+                                <h4 class="hh">Total Sales:</h4>
+                                <hr/>
+                                <span>GT: #{adminBean.gtSales}</span>
+                               <hr/>
+                            </div>
+                            <div class="col-md-12 summarySales">
+                                <h4>Monthly Sales</h4>
+                                 <hr/>
+                                 <span>MGT: #{adminBean.gtSalesmonth}</span>
+                               <hr/>
+                            </div>
+                            <div class="col-md-12 summarySales">
+                                <h4>D-Purchases</h4>
+                                <hr/>
+                                <span>DP: #{adminBean.gtdpurchases}</span>
+                               <hr/>
+                            </div>
+                            <div class="col-md-12 summarySales">
+                                <h4>Yearly Sales</h4>
+                                 <hr/>
+                                 <span>SY: #{adminBean.gtyearsales}</span>
+                               <hr/>
+                            </div>
+                        </div>
 
-                <div id="content" class="col-xs-12 col-md-10">
-                    <ui:insert name="content">
-                        content page
-                    </ui:insert>
+                    </div>
                 </div>
             </div>
 
